@@ -1,9 +1,11 @@
 package com.example.demo;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class SpringBootJdbcController {
     @Autowired
     JdbcTemplate jdbc;
+    
 
     @RequestMapping(path="/addreview", method=RequestMethod.POST)
     public String addReview(@RequestBody String request) throws IOException{
@@ -28,9 +31,9 @@ public class SpringBootJdbcController {
         return "Data inserted successfully";
     }
 
-    @RequestMapping(path="/addreview", method=RequestMethod.GET)
-    public String getItems() throws IOException{
-        
-        return "Data inserted successfully";
+    @RequestMapping(path="/getitems", method=RequestMethod.GET)
+    public List<Item> getItems() throws IOException{
+        List<Item> items = jdbc.query("select * from 'sys' , 'gaming_peripherals'", new RowMapper<Item>());
+        return ;
     }
 }
