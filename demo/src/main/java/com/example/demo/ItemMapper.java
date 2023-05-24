@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 public class ItemMapper implements RowMapper<Item>{
+
+    @Override
     public Item mapRow(ResultSet rs, int rowNum) throws SQLException {
         Item item = new Item();
         item.setItemId(rs.getInt("item_id"));
