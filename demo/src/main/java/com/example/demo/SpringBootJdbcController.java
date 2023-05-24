@@ -34,7 +34,6 @@ public class SpringBootJdbcController {
     @RequestMapping(path="/getitems", method=RequestMethod.GET)
     public List<Item> getItems() throws IOException{
         List<Item> items = jdbc.query("select * from gaming_peripherals", new ItemMapper());
-        System.out.println(items);
         return items;
     }
 }
