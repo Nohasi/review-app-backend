@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
-@CrossOrigin(origins = "*, http://localhost:3000")
+@CrossOrigin(origins = "*, http://localhost:3001")
 public class SpringBootJdbcController {
     @Autowired
     JdbcTemplate jdbc;
